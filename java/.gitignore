@@ -1,5 +1,5 @@
 reference.zip
-bin
-generated
+bin/
+generated/
 mode/JavaMode.jar
 
