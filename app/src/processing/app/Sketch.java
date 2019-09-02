@@ -51,11 +51,11 @@ import javax.swing.border.EmptyBorder;
  * Stores information about files in the current sketch.
  */
 public class Sketch {
-  private Editor editor;
+  protected Editor editor;
   private Mode mode;
 
   /** main pde file for this sketch. */
-  private File primaryFile;
+  protected File primaryFile;
 
   /**
    * Name of sketch, which is the name of main file
@@ -70,10 +70,10 @@ public class Sketch {
   private File folder;
 
   /** data folder location for this sketch (may not exist yet) */
-  private File dataFolder;
+  protected File dataFolder;
 
   /** code folder location for this sketch (may not exist yet) */
-  private File codeFolder;
+  protected File codeFolder;
 
   private SketchCode current;
   private int currentIndex;
@@ -85,8 +85,8 @@ public class Sketch {
    * resized to just the relevant files themselves.
    * http://dev.processing.org/bugs/show_bug.cgi?id=940
    */
-  private int codeCount;
-  private SketchCode[] code;
+  protected int codeCount;
+  protected SketchCode[] code;
 
   /** Moved out of Editor and into here for cleaner access. */
   private boolean untitled;

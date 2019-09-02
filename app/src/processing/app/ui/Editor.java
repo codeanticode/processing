@@ -101,7 +101,7 @@ public abstract class Editor extends JFrame implements RunnerListener {
   private PrinterJob printerJob;
 
   // File and sketch menus for re-inserting items
-  private JMenu fileMenu;
+  protected JMenu fileMenu;
 //  private JMenuItem saveMenuItem;
 //  private JMenuItem saveAsMenuItem;
 
@@ -148,7 +148,7 @@ public abstract class Editor extends JFrame implements RunnerListener {
   private final Stack<Integer> caretRedoStack = new Stack<>();
 
   private FindReplace find;
-  JMenu toolsMenu;
+  protected JMenu toolsMenu;
   JMenu modePopup;
 
   Image backgroundGradient;
