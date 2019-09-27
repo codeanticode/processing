@@ -96,7 +96,7 @@ public class Toolkit {
   static final int SHORTCUT_ALT_KEY_MASK =
     ActionEvent.ALT_MASK | SHORTCUT_KEY_MASK;
   /** Command-Shift on Mac OS X, Ctrl-Shift on Windows and Linux */
-  static final int SHORTCUT_SHIFT_KEY_MASK =
+  public static final int SHORTCUT_SHIFT_KEY_MASK =
     ActionEvent.SHIFT_MASK | SHORTCUT_KEY_MASK;
 
   /** Command-W on Mac OS X, Ctrl-W on Windows and Linux */

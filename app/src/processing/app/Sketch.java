@@ -75,8 +75,8 @@ public class Sketch {
   /** code folder location for this sketch (may not exist yet) */
   protected File codeFolder;
 
-  private SketchCode current;
-  private int currentIndex;
+  protected SketchCode current;
+  protected int currentIndex;
 
   /**
    * Number of sketchCode objects (tabs) in the current sketch. Note that this
@@ -101,7 +101,7 @@ public class Sketch {
    */
   public Sketch(String path, Mode mode) {
     this.editor = null;
-    this.mode = mode;
+    this.mode = mode;   
     load(path);
   }
 
@@ -293,7 +293,7 @@ public class Sketch {
   }
 
 
-  boolean renamingCode;
+  
 
   /**
    * Handler for the New Code menu option.
@@ -316,6 +316,7 @@ public class Sketch {
   }
 
 
+  protected boolean renamingCode;
   /**
    * Handler for the Rename Code menu option.
    */
@@ -476,7 +477,7 @@ public class Sketch {
       return;
     }
 
-    int dot = newName.lastIndexOf('.');
+    int dot = newName.lastIndexOf('.');    
     String newExtension = newName.substring(dot+1).toLowerCase();
     if (!mode.validExtension(newExtension)) {
       Messages.showWarning(Language.text("name.messages.problem_renaming"),
