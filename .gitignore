@@ -4,6 +4,7 @@
 ._*
 *~
 /build/shared/reference.zip
+*.class
 
 # temporary, until we complete the move to IntelliJ
 *.iml
