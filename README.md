@@ -13,6 +13,8 @@ Usage
 --------------------------------------------------------------
 I might try to post a set of executables depending on conversation at [Support for Java 11, OpenJDK, and OpenJFX](https://github.com/processing/processing/pull/5753). Until then, clone this repo (`$ git clone git@github.com:sampottinger/processing.git`) and follow the build instructions below.
 
+It requires an OpenJDK installed in the development machine, the [HotSpot version](https://adoptopenjdk.net/?variant=openjdk11&jvmVariant=hotspot) from AdoptOpenJDK seems like a good option (tested on Mac and Windows).
+
 <br>
 
 Build
