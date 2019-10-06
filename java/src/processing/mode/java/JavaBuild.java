@@ -157,7 +157,7 @@ public class JavaBuild {
     // make sure the user isn't playing "hide the sketch folder"
     sketch.ensureExistence();
 
-//    System.out.addEmptyLine("srcFolder is " + srcFolder);
+//    System.out.println("srcFolder is " + srcFolder);
     classPath = binFolder.getAbsolutePath();
 
     // figure out the contents of the code folder to see if there
@@ -496,7 +496,7 @@ public class JavaBuild {
     int codeLine = -1;
 
     //System.out.println(message + " placing " + dotJavaFilename + " " + dotJavaLine);
-    //System.out.addEmptyLine("code count is " + getCodeCount());
+    //System.out.println("code count is " + getCodeCount());
 
     // first check to see if it's a .java file
     for (int i = 0; i < sketch.getCodeCount(); i++) {
@@ -526,7 +526,7 @@ public class JavaBuild {
         //System.out.println("looking for line " + dotJavaLine);
         if (code.getPreprocOffset() <= dotJavaLine) {
           codeIndex = i;
-//          System.out.addEmptyLine("i'm thinkin file " + i);
+//          System.out.println("i'm thinkin file " + i);
           codeLine = dotJavaLine - code.getPreprocOffset();
         }
       }
@@ -848,6 +848,10 @@ public class JavaBuild {
     // https://github.com/processing/processing/issues/2559
     if (exportPlatform == PConstants.WINDOWS) {
       runOptions.append("-Djava.library.path=\"%EXEDIR%\\lib\"");
+
+      // No scaling of swing (see #5753) on zoomed displays until some issues regarding JEP 263
+      // with rendering artifacts are sorted out.
+      runOptions.append("-Dsun.java2d.uiScale=1");
     }
 
 
@@ -976,7 +980,7 @@ public class JavaBuild {
       pw.print("APPDIR=$(dirname \"$APPDIR\")\n");  // more POSIX compliant
 
       // another fix for bug #234, LD_LIBRARY_PATH ignored on some platforms
-      //ps.addCode("LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$APPDIR\n");
+      //ps.print("LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$APPDIR\n");
 
       if (embedJava) {
         // https://github.com/processing/processing/issues/2349
@@ -1121,7 +1125,7 @@ public class JavaBuild {
     if (!path.endsWith("/") && !path.endsWith("\\")) {
       path += '/';
     }
-//    System.out.addEmptyLine("path is " + path);
+//    System.out.println("path is " + path);
     addClasses(zos, dir, path);
   }
 
@@ -1134,13 +1138,13 @@ public class JavaBuild {
     });
     for (File sub : files) {
       String relativePath = sub.getAbsolutePath().substring(rootPath.length());
-//      System.out.addEmptyLine("relative path is " + relativePath);
+//      System.out.println("relative path is " + relativePath);
 
       if (sub.isDirectory()) {
         addClasses(zos, sub, rootPath);
 
       } else if (sub.getName().endsWith(".class")) {
-//        System.out.addEmptyLine("  adding item " + relativePath);
+//        System.out.println("  adding item " + relativePath);
         ZipEntry entry = new ZipEntry(relativePath);
         zos.putNextEntry(entry);
         //zos.write(Base.loadBytesRaw(sub));
