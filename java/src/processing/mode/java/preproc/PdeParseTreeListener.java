@@ -223,7 +223,8 @@ public class PdeParseTreeListener extends ProcessingBaseListener {
         allImports,
         allEdits,
         sketchWidth,
-        sketchHeight
+        sketchHeight,
+        sketchRenderer
     );
   }
 
@@ -326,7 +327,7 @@ public class PdeParseTreeListener extends ProcessingBaseListener {
 
       if (isFullscreen) {
         sketchWidth = "displayWidth";
-        sketchWidth = "displayHeight";
+        sketchHeight = "displayHeight";
 
         thisRequiresRewrite = true;
         sizeIsFullscreen = true;
