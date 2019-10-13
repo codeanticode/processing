@@ -1369,7 +1369,7 @@ public class JEditTextArea extends JComponent
     // See https://github.com/sampottinger/processing/issues/103
     // Requires reference not object equality check
     if (candidateMetrics != cachedPartialPixelWidthFont) {
-      float withFractional = Utilities.getTabbedTextWidth​(
+      float withFractional = Utilities.getTabbedTextWidth(
         TEST_SEGMENT,
         candidateMetrics,
         x,
