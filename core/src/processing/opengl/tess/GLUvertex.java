@@ -52,7 +52,7 @@
 ** Processing integration: Andres Colubri, February 2012
 */
 
-package codeanticode.lwjgl.tess;
+package processing.opengl.tess;
 
 class GLUvertex {
     public GLUvertex next;        /* next vertex (never NULL) */

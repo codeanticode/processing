@@ -52,7 +52,7 @@
 ** Processing integration: Andres Colubri, February 2012
 */
 
-package codeanticode.lwjgl.tess;
+package processing.opengl.tess;
 
 /**
  * The <b>GLUtessellatorCallbackAdapter</b> provides a default implementation of

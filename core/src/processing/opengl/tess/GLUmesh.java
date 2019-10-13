@@ -53,7 +53,7 @@
 ** Processing integration: Andres Colubri, February 2012
 */
 
-package codeanticode.lwjgl.tess;
+package processing.opengl.tess;
 
 class GLUmesh {
     GLUvertex vHead = new GLUvertex();        /* dummy header for vertex list */

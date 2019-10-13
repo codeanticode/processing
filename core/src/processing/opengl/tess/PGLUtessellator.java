@@ -53,7 +53,7 @@
 ** Processing integration: Andres Colubri, February 2012
 */
 
-package codeanticode.lwjgl.tess;
+package processing.opengl.tess;
 
 /**
  * The <b>GLUtessellator</b> object is used to hold the data, such as the

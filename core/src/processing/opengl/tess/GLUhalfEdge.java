@@ -51,7 +51,7 @@
 ** Processing integration: Andres Colubri, February 2012
 */
 
-package codeanticode.lwjgl.tess;
+package processing.opengl.tess;
 
 class GLUhalfEdge {
     public GLUhalfEdge next;        /* doubly-linked list (prev==Sym->next) */

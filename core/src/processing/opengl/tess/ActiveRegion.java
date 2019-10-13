@@ -52,7 +52,7 @@
 ** Processing integration: Andres Colubri, February 2012
 */
 
-package codeanticode.lwjgl.tess;
+package processing.opengl.tess;
 
 class ActiveRegion {
     GLUhalfEdge eUp;        /* upper edge, directed right to left */

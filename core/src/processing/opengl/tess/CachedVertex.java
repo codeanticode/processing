@@ -52,7 +52,7 @@
 ** Processing integration: Andres Colubri, February 2012
 */
 
-package codeanticode.lwjgl.tess;
+package processing.opengl.tess;
 
 class CachedVertex {
     public double[] coords = new double[3];

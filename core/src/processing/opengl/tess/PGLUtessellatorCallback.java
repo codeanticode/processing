@@ -51,7 +51,8 @@
 ** Java Port: Nathan Parker Burg, August 2003
 ** Processing integration: Andres Colubri, February 2012
 */
-package codeanticode.lwjgl.tess;
+
+package processing.opengl.tess;
 
 /**
  * <b>GLUtessellatorCallback</b> interface provides methods that the user will
@@ -60,7 +61,7 @@ package codeanticode.lwjgl.tess;
  * @author Eric Veach, July 1994
  * @author Java Port: Pepijn Van Eeckhoudt, July 2003
  * @author Java Port: Nathan Parker Burg, August 2003
- * @author Processing integration: Andres Colubri, February 2012 
+ * @author Processing integration: Andres Colubri, February 2012
  */
 
 public interface PGLUtessellatorCallback {

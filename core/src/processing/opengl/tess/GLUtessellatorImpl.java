@@ -52,8 +52,7 @@
 ** Processing integration: Andres Colubri, February 2012
 */
 
-package codeanticode.lwjgl.tess;
-
+package processing.opengl.tess;
 
 public class GLUtessellatorImpl implements PGLUtessellator {
     public static final int TESS_MAX_CACHE = 100;

@@ -22,9 +22,9 @@
 
 package processing.opengl;
 
-import codeanticode.lwjgl.tess.PGLU;
-import codeanticode.lwjgl.tess.PGLUtessellator;
-import codeanticode.lwjgl.tess.PGLUtessellatorCallbackAdapter;
+import processing.opengl.tess.PGLU;
+import processing.opengl.tess.PGLUtessellator;
+import processing.opengl.tess.PGLUtessellatorCallbackAdapter;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.PointerBuffer;
 import org.lwjgl.opengl.ARBMapBufferRange;
@@ -66,10 +66,10 @@ import static org.lwjgl.system.MemoryStack.stackPush;
  *
  */
 public class PLWJGL extends PGL {
-  
+
   static public final String P2D = "codeanticode.lwjgl.PGraphicsLWJGL2D";
-  static public final String P3D = "codeanticode.lwjgl.PGraphicsLWJGL3D";  
-  
+  static public final String P3D = "codeanticode.lwjgl.PGraphicsLWJGL3D";
+
   // ........................................................
 
   // Public members to access the underlying GL objects and canvas
@@ -332,25 +332,25 @@ public class PLWJGL extends PGL {
     }
 
     public void setCallback(int flag) {
-      PGLU.gluTessCallback(tess, flag, gluCallback);      
-    }    
-    
+      PGLU.gluTessCallback(tess, flag, gluCallback);
+    }
+
     public void setWindingRule(int rule) {
       PGLU.gluTessProperty(tess, PGLU.GLU_TESS_WINDING_RULE, rule);
-    }    
-    
+    }
+
     public void setProperty(int property, int value) {
-      PGLU.gluTessProperty(tess, property, value);      
-    } 
-    
+      PGLU.gluTessProperty(tess, property, value);
+    }
+
     public void beginPolygon() {
       PGLU.gluTessBeginPolygon(tess, null);
     }
 
     public void beginPolygon(Object data) {
-      PGLU.gluTessBeginPolygon(tess, data);      
-    }    
-    
+      PGLU.gluTessBeginPolygon(tess, data);
+    }
+
     public void endPolygon() {
       PGLU.gluTessEndPolygon(tess);
     }
@@ -368,8 +368,8 @@ public class PLWJGL extends PGL {
     }
 
     public void addVertex(double[] v, int n, Object data) {
-      PGLU.gluTessVertex(tess, v, n, data);      
-    }    
+      PGLU.gluTessVertex(tess, v, n, data);
+    }
 
     protected class GLUCallback extends PGLUtessellatorCallbackAdapter {
       @Override
