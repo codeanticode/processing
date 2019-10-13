@@ -3,7 +3,7 @@
 /*
   Part of the Processing project - http://processing.org
 
-  Copyright (c) 2012-15 The Processing Foundation
+  Copyright (c) 2012-19 The Processing Foundation
   Copyright (c) 2004-12 Ben Fry and Casey Reas
   Copyright (c) 2001-04 Massachusetts Institute of Technology
 
@@ -709,7 +709,7 @@ public class PGraphicsOpenGL extends PGraphics {
 
   // Factory method
   protected PGL createPGL(PGraphicsOpenGL pg) {
-    return new PJOGL(pg);
+    return new PLWJGL(pg);
 //    return new PGLES(pg);
   }
 
@@ -747,7 +747,7 @@ public class PGraphicsOpenGL extends PGraphics {
   @Override
   // Java only
   public PSurface createSurface() {  // ignore
-    return surface = new PSurfaceJOGL(this);
+    return surface = new PSurfaceLWJGL(this);
   }
 
 

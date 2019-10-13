@@ -2279,10 +2279,10 @@ public class PApplet implements PConstants {
     } catch (InvocationTargetException ite) {
       String msg = ite.getTargetException().getMessage();
       if ((msg != null) &&
-          (msg.indexOf("no jogl in java.library.path") != -1)) {
+          (msg.indexOf("no LWJGL in java.library.path") != -1)) {
         // Is this true anymore, since the JARs contain the native libs?
-        throw new RuntimeException("The jogl library folder needs to be " +
-          "specified with -Djava.library.path=/path/to/jogl");
+        throw new RuntimeException("The LWJGL library folder needs to be " +
+          "specified with -Djava.library.path=/path/to/lwjgl");
 
       } else {
         printStackTrace(ite.getTargetException());
