@@ -960,19 +960,19 @@ public class PApplet implements PConstants {
     // Not doing this from a static initializer because it may cause
     // PApplet to cache and the values to stick through subsequent runs.
     // Instead make it a runtime thing and a local variable.
-    GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-    GraphicsDevice device = ge.getDefaultScreenDevice();
-    displayDevices = ge.getScreenDevices();
+//    GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+//    GraphicsDevice device = ge.getDefaultScreenDevice();
+//    displayDevices = ge.getScreenDevices();
 
     // Default or unparsed will be -1, spanning will be 0, actual displays will
     // be numbered from 1 because it's too weird to say "display 0" in prefs.
-    if (display > 0 && display <= displayDevices.length) {
-      device = displayDevices[display-1];
-    }
+//    if (display > 0 && display <= displayDevices.length) {
+//      device = displayDevices[display-1];
+//    }
     // Set displayWidth and displayHeight for people still using those.
-    DisplayMode displayMode = device.getDisplayMode();
-    displayWidth = displayMode.getWidth();
-    displayHeight = displayMode.getHeight();
+//    DisplayMode displayMode = device.getDisplayMode();
+//    displayWidth = displayMode.getWidth();
+//    displayHeight = displayMode.getHeight();
 
     // Here's where size(), fullScreen(), smooth(N) and noSmooth() might
     // be called, conjuring up the demons of various rendering configurations.
@@ -3835,13 +3835,13 @@ public class PApplet implements PConstants {
     }
 
     if (platform == MACOSX) {
-      try {
-        final String td = "processing.core.ThinkDifferent";
-        final Class<?> thinkDifferent = getClass().getClassLoader().loadClass(td);
-        thinkDifferent.getMethod("cleanup").invoke(null);
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
+//      try {
+//        final String td = "processing.core.ThinkDifferent";
+//        final Class<?> thinkDifferent = getClass().getClassLoader().loadClass(td);
+//        thinkDifferent.getMethod("cleanup").invoke(null);
+//      } catch (Exception e) {
+//        e.printStackTrace();
+//      }
     }
 
   }
@@ -10677,10 +10677,10 @@ public class PApplet implements PConstants {
 //                                     final PApplet constructedSketch) {
     // Supposed to help with flicker, but no effect on OS X.
     // TODO IIRC this helped on Windows, but need to double check.
-    System.setProperty("sun.awt.noerasebackground", "true");
+//    System.setProperty("sun.awt.noerasebackground", "true");
 
     // Remove 60fps limit on the JavaFX "pulse" timer
-    System.setProperty("javafx.animation.fullspeed", "true");
+//    System.setProperty("javafx.animation.fullspeed", "true");
 
     // Doesn't seem to do anything helpful here (that can't be done via Runner)
     //System.setProperty("com.apple.mrj.application.apple.menu.about.name", "potato");
@@ -10713,15 +10713,17 @@ public class PApplet implements PConstants {
     }
     */
 
+
     // Catch any HeadlessException to provide more useful feedback
-    try {
-      // Call validate() while resize events are in progress
-      Toolkit.getDefaultToolkit().setDynamicLayout(true);
-    } catch (HeadlessException e) {
-      System.err.println("Cannot run sketch without a display. Read this for possible solutions:");
-      System.err.println("https://github.com/processing/processing/wiki/Running-without-a-Display");
-      System.exit(1);
-    }
+//    try {
+//      // Call validate() while resize events are in progress
+//      Toolkit.getDefaultToolkit().setDynamicLayout(true);
+//    } catch (HeadlessException e) {
+//      System.err.println("Cannot run sketch without a display. Read this for possible solutions:");
+//      System.err.println("https://github.com/processing/processing/wiki/Running-without-a-Display");
+//      System.exit(1);
+//    }
+
 
     // So that the system proxy setting are used by default
     System.setProperty("java.net.useSystemProxies", "true");
@@ -10851,16 +10853,16 @@ public class PApplet implements PConstants {
     }
 
     if (platform == MACOSX) {
-      try {
-        final String td = "processing.core.ThinkDifferent";
-        Class<?> thinkDifferent =
-          Thread.currentThread().getContextClassLoader().loadClass(td);
-        Method method =
-          thinkDifferent.getMethod("init", new Class[] { PApplet.class });
-        method.invoke(null, new Object[] { sketch });
-      } catch (Exception e) {
-        e.printStackTrace();  // That's unfortunate
-      }
+//      try {
+//        final String td = "processing.core.ThinkDifferent";
+//        Class<?> thinkDifferent =
+//          Thread.currentThread().getContextClassLoader().loadClass(td);
+//        Method method =
+//          thinkDifferent.getMethod("init", new Class[] { PApplet.class });
+//        method.invoke(null, new Object[] { sketch });
+//      } catch (Exception e) {
+//        e.printStackTrace();  // That's unfortunate
+//      }
     }
 
     // Set the suggested display that's coming from the command line
@@ -10982,56 +10984,46 @@ public class PApplet implements PConstants {
 
     // Create fake Frame object to warn user about the changes
     if (g.displayable()) {
-      frame = new Frame() {
-        @Override
-        public void setResizable(boolean resizable) {
-          deprecationWarning("setResizable");
-          surface.setResizable(resizable);
-        }
-
-        @Override
-        public void setVisible(boolean visible) {
-          deprecationWarning("setVisible");
-          surface.setVisible(visible);
-        }
-
-        @Override
-        public void setTitle(String title) {
-          deprecationWarning("setTitle");
-          surface.setTitle(title);
-        }
-
-        @Override
-        public void setUndecorated(boolean ignored) {
-          throw new RuntimeException("'frame' has been removed from Processing 3, " +
-            "use fullScreen() to get an undecorated full screen frame");
-        }
-
-        // Can't override this one because it's called by Window's constructor
-        /*
-        @Override
-        public void setLocation(int x, int y) {
-          deprecationWarning("setLocation");
-          surface.setLocation(x, y);
-        }
-        */
-
-        @Override
-        public void setSize(int w, int h) {
-          deprecationWarning("setSize");
-          surface.setSize(w, h);
-        }
-
-        private void deprecationWarning(String method) {
-          PGraphics.showWarning("Use surface." + method + "() instead of " +
-                                "frame." + method + " in Processing 3");
-          //new Exception(method).printStackTrace(System.out);
-        }
-      };
+//      frame = new Frame() {
+//        @Override
+//        public void setResizable(boolean resizable) {
+//          deprecationWarning("setResizable");
+//          surface.setResizable(resizable);
+//        }
+//
+//        @Override
+//        public void setVisible(boolean visible) {
+//          deprecationWarning("setVisible");
+//          surface.setVisible(visible);
+//        }
+//
+//        @Override
+//        public void setTitle(String title) {
+//          deprecationWarning("setTitle");
+//          surface.setTitle(title);
+//        }
+//
+//        @Override
+//        public void setUndecorated(boolean ignored) {
+//          throw new RuntimeException("'frame' has been removed from Processing 3, " +
+//            "use fullScreen() to get an undecorated full screen frame");
+//        }
+//
+//        @Override
+//        public void setSize(int w, int h) {
+//          deprecationWarning("setSize");
+//          surface.setSize(w, h);
+//        }
+//
+//        private void deprecationWarning(String method) {
+//          PGraphics.showWarning("Use surface." + method + "() instead of " +
+//                                "frame." + method + " in Processing 3");
+//          //new Exception(method).printStackTrace(System.out);
+//        }
+//      };
 
       surface.initFrame(this); //, backgroundColor, displayNum, fullScreen, spanDisplays);
       surface.setTitle(getClass().getSimpleName());
-
     } else {
       surface.initOffscreen(this);  // for PDF/PSurfaceNone and friends
     }
