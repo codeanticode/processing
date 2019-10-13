@@ -348,6 +348,14 @@ public class Runner implements MessageConsumer {
       // No longer needed / doesn't seem to do anything differently
       //params.append("-Dcom.apple.mrj.application.apple.menu.about.name=" +
       //              build.getSketchClassName());
+      
+      String renderer = build.getSketchRenderer();
+      System.out.println("SKETCH RENDERER: " + renderer);
+      if (renderer != null && (renderer.equals("P2D") || renderer.equals("P3D"))) {
+        System.out.println("Adding startOnFirstThread to VM arguments");
+        params.append("-XstartOnFirstThread");
+      }      
+      
     } else if (Platform.isWindows()) {
       // No scaling of swing (see #5753) on zoomed displays until some issues regarding JEP 263
       // with rendering artifacts are sorted out.

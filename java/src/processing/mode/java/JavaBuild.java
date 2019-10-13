@@ -61,6 +61,7 @@ public class JavaBuild {
   private boolean foundMain = false;
   private String classPath;
   protected String sketchClassName;
+  protected String sketchRenderer;
 
   /**
    * This will include the code folder, any library folders, etc. that might
@@ -107,6 +108,7 @@ public class JavaBuild {
 
     // run the preprocessor
     String classNameFound = preprocess(srcFolder, sizeWarning);
+    
 
     // compile the program. errors will happen as a RunnerException
     // that will bubble up to whomever called build().
@@ -123,6 +125,11 @@ public class JavaBuild {
   }
 
 
+  public String getSketchRenderer() {
+    return sketchRenderer;
+  }
+  
+  
   /**
    * Build all the code for this sketch.
    *
@@ -270,6 +277,8 @@ public class JavaBuild {
       );
     }
 
+    sketchRenderer = result.getSketchRenderer();
+    
     // grab the imports from the code just preprocessed
 
     importedLibraries = new ArrayList<>();
